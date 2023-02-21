@@ -12,11 +12,16 @@ echo ""
 echo "Please provide details for your Saleor Dashboard installation..."
 echo ""
 # Get the Dashboard & GraphQL host domain
-while [ "$SAME_HOST" = "" ]
-do
-        echo -n "Are you hosting the Dashboard on the same host domain as the API (yes|no)?"
-        read SAME_HOST
-done
+# while [ "$SAME_HOST" = "" ]
+# do
+#         echo -n "Are you hosting the Dashboard on the same host domain as the API (yes|no)?"
+#         read SAME_HOST
+# done
+
+if [ "$SAME_HOST" = "" ]; then
+        SAME_HOST="yes"
+fi
+
 # Get the API host IP or domain
 if [ "$SAME_HOST" = "no" ]; then
         while [ "$APP_HOST" = "" ]
@@ -26,6 +31,11 @@ if [ "$SAME_HOST" = "no" ]; then
                 read APP_HOST
         done
 fi
+
+if [ "$APP_MOUNT_URI" = "" ]; then
+        APP_MOUNT_URI="dashboard"
+fi
+
 # Get the APP Mount (Dashboard) URI
 while [ "$APP_MOUNT_URI" = "" ]
 do
@@ -49,7 +59,7 @@ fi
 sudo -u $UN git clone https://github.com/mirumee/saleor-dashboard.git
 wait
 # Build the API URL
-API_URL="https://$HOST/$APIURI/"
+API_URL="http://$HOST/$APIURI/"
 # Write the production .env file from template.env
 if [ "$SAME_HOST" = "no" ]; then
         sudo sed "s|{api_url}|$API_URL|
@@ -76,7 +86,7 @@ if [ "vOPT" = "true" ] || [ "$VERSION" != "" ]; then
         sudo -u $UN git checkout $VERSION
 fi
 # Update npm
-npm install -g npm@latest
+#npm install -g npm@latest
 wait
 # Install dependancies
 sudo -u $UN npm i
