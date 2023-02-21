@@ -282,25 +282,25 @@ do
         read HOST
 done
 # Get an optional custom Static URL
-if [ "$STATIC_URL" = "" ]; then
-        echo -n "Enter a custom Static Files URI (optional):"
-        read STATIC_URL
-        if [ "$STATIC_URL" != "" ]; then
-                STATIC_URL="/$STATIC_URL/"
-        fi
-else
-        STATIC_URL="/$STATIC_URL/"
-fi
+# if [ "$STATIC_URL" = "" ]; then
+#         echo -n "Enter a custom Static Files URI (optional):"
+#         read STATIC_URL
+#         if [ "$STATIC_URL" != "" ]; then
+#                 STATIC_URL="/$STATIC_URL/"
+#         fi
+# else
+#         STATIC_URL="/$STATIC_URL/"
+# fi
 # Get an optional custom media URL
-if [ "$MEDIA_URL" = "" ]; then
-        echo -n "Enter a custom Media Files URI (optional):"
-        read MEDIA_URL
-        if [ "$MEDIA_URL" != "" ]; then
-                MEDIA_URL="/$MEDIA_URL/"
-        fi
-else
-        MEDIA_URL="/$MEDIA_URL/"
-fi
+# if [ "$MEDIA_URL" = "" ]; then
+#         echo -n "Enter a custom Media Files URI (optional):"
+#         read MEDIA_URL
+#         if [ "$MEDIA_URL" != "" ]; then
+#                 MEDIA_URL="/$MEDIA_URL/"
+#         fi
+# else
+#         MEDIA_URL="/$MEDIA_URL/"
+# fi
 # Get the Admin's email address
 while [ "$ADMIN_EMAIL" = "" ]
 do
