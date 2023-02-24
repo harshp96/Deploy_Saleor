@@ -670,7 +670,7 @@ echo ""
 #########################################################################################
 # Call the dashboard deployment script - Disabled until debugged
 #########################################################################################
-source $HD/Deploy_Saleor/deploy-dashboard.sh
+#source $HD/Deploy_Saleor/deploy-dashboard.sh
 #########################################################################################
 
 
