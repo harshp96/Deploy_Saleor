@@ -19,7 +19,7 @@ disable-write-exception = true
 socket                  = {hd}/run/saleor.sock
 # socket permissions
 chown-socket            = {un}:www-data
-chmod-socket            = 660
+chmod-socket            = 666
 strict                  = true
 need-app                = true
 uid                     = {un}
